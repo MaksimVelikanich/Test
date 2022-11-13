@@ -1,10 +1,25 @@
-function getFirstLetter (word){
-    let string = word;
-    if (string == Number){
-        console.log(string.match(/[0-9]/))
+const getFirstLetter =(word) => {
+    let index = 0;
+
+    const check = () =>{
+        const letter = word[index];
+        const isNumber = letter.match(/[0-9]/);
+        const isLetter = letter.match(/[aA-zZ]/);
+        const isSymbol = !isNumber && !isLetter;
+
+        if (isNumber){
+            console.log('[0-9]')
+        }
+        else if (isLetter){
+            console.log(letter)
+        }
+        else if (isSymbol){
+            index +=1;
+            check();
+        }
+
     }
-    else if (string = String) {
-        console.log(string.match(/a-b/))
-    }
+    check()
+
 }
-getFirstLetter("a-b")
+getFirstLetter("b")
